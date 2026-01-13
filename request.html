@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Request Page </title> <!-- Submit a session/help request -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+        <form id="requestForm">
+            <select>
+                <option>Select a skill</option>
+                <option>Math</option>
+                <option>Science</option>
+            </select>
+
+            <textarea placeholder="Message"></textarea>
+            <button>Send Request</button>
+        </form>
+        <script type="module" src="js/firebase.js"></script>
+
+</body>
+</html>
+
+/* Request Form:
+   - Skill Dropdown: Select a skill from available options.
+   - Message Textarea: Input additional details for the request.
+   - Send Request Button: Submits the help request form. */
+
+/* Confirmation message after submit, Clear instructions text at top */

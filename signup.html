@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sign Up Page </title> <!-- Create an account (Firebase Auth later) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+        <form id="signupForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button>Create Account</button>
+    </form>
+    <script type="module" src="js/firebase.js"></script>
+
+</body>
+</html>
+
+/* Sign Up Form:
+   - Full Name: Text input for the user's full name.
+   - Email: Text input for the user's email address.
+   - Password: Password input for account security.
+   - Create Account Button: Submits the sign-up form. */
+
+/* Required fields
+
+Password length hint
+
+Error message <p class="error"></p> for invalid email format */
