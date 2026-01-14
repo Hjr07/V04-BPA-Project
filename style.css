@@ -34,6 +34,7 @@ a {
 .logo {
   font-size: 22px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-links a {
@@ -144,4 +145,5 @@ form {
   table {
     font-size: 14px;
   }
+
 }
