@@ -6,9 +6,8 @@ body {
   background-color: #fa8a9d;
 }
 
-_____ homepage styles _____
 
-/* GLOBAL */
+/* Hompage Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f7fa;
@@ -34,7 +33,6 @@ a {
 .logo {
   font-size: 22px;
   font-weight: bold;
-  text-decoration: none;
 }
 
 .nav-links a {
@@ -145,5 +143,155 @@ form {
   table {
     font-size: 14px;
   }
-
 }
+:root {
+  --charcoal: #2b2b2b;
+  --ivory: #f7f7f2;
+  --sage: #7a8f7a;
+  --gold: #d4b25c;
+  --gray: #e2e2e2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+.site-header {
+  background: var(--charcoal);
+  color: white;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.2rem;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--sage), var(--gold));
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-group {
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--charcoal);
+  color: white;
+}
+
+.btn.secondary {
+  background: white;
+  color: var(--charcoal);
+}
+
+.btn.full {
+  width: 100%;
+}
+
+/* Cards & Panels */
+.panel, .form-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: min(700px, 95%);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--charcoal);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .main-nav {
+    display:none;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+
+
+
+ 

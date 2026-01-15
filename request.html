@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Request Page </title> <!-- Submit a session/help request -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-        <nav class="navbar">
-            <div class="logo">SkillConnect</div>
-            <div class="nav-links">
-            <a href="login.html">Login</a>
-            <a href="signup.html" class="btn">Sign Up</a>
-            </div>
-        </nav>
-        <form id="requestForm">
-            <select>
-                <option>Select a skill</option>
-                <option>Math</option>
-                <option>Science</option>
-            </select>
 
-            <textarea placeholder="Message"></textarea>
-            <button>Send Request</button>
-        </form>
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo">SkillSwap</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./request.html">Requests</a>
+      <a href="./admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
 
-        <footer>
-        <p> © 2026 SkillSwap | BPA V04 Team </p>
-        </footer>
-    
-        <script type="module" src="js/firebase.js"></script>
+<main class="dashboard">
+  <section class="panel">
+    <h2>Request a Session</h2>
+
+    <form id="requestForm" class="form wide">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="requestedSkill">Skill Needed</label>
+          <input type="text" id="requestedSkill" name="requestedSkill" required>
+        </div>
+
+        <div class="form-group">
+          <label for="sessionDate">Preferred Date</label>
+          <input type="date" id="sessionDate" name="sessionDate" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="requestMessage">Message</label>
+        <textarea id="requestMessage" name="message" rows="3" required></textarea>
+      </div>
+
+      <button type="submit" class="btn primary">Send Request</button>
+    </form>
+  </section>
+
+  <section class="panel">
+    <h2>Your Requests</h2>
+    <div id="requestList" class="card-grid"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 SkillSwap — Student Talent Exchange</p>
+  </div>
+</footer>
 
 </body>
 </html>
-
-/* Request Form:
-   - Skill Dropdown: Select a skill from available options.
-   - Message Textarea: Input additional details for the request.
-   - Send Request Button: Submits the help request form. */
-
-
-/* Confirmation message after submit, Clear instructions text at top */
-

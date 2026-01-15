@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Admin Page </title> <!-- Show judges you have admin oversight -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-        <nav class="navbar">
-            <div class="logo">SkillConnect</div>
-            <div class="nav-links">
-            <a href="login.html">Login</a>
-            <a href="signup.html" class="btn">Sign Up</a>
-            </div>
-        </nav>
-    
-        <table>
-            <tr>
-                <th>User</th>
-                <th>Skill</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>Algebra</td>
-                <td>Pending</td>
-            </tr>
-        </table>
 
-        <footer>
-        <p> © 2026 SkillSwap | BPA V04 Team </p>
-        </footer>
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo">SkillSwap</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./request.html">Requests</a>
+      <a href="./admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
 
-        <script type="module" src="js/firebase.js"></script>
+<main class="dashboard">
+  <section class="panel">
+    <h2>User Management</h2>
+    <div id="userList" class="card-grid"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Session Requests</h2>
+    <div id="adminRequests" class="card-grid"></div>
+  </section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 SkillSwap — Student Talent Exchange</p>
+  </div>
+</footer>
+
 </body>
-
 </html>
-

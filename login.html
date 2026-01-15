@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Log In Page </title> <!-- Existing users log in -->
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-        <nav class="navbar">
-            <div class="logo"><a href="index.html">SkillConnect</a></div>
-            <div class="nav-links">
-            <a href="login.html">Login</a>
-            <a href="signup.html" class="btn">Sign Up</a>
-            </div>
-        </nav>
-        <br>
-        <br>
-        <br>
-    <form id="loginForm">
-        <input type="email" required>
-        <input type="password" required>
-    <button>Log In</button>
-</form>
 
-    <footer>
-    <p> © 2026 SkillSwap | BPA V04 Team </p>
-    </footer>
-    
+<header class="site-header">
+  <div class="container">
+    <h1 class="logo">SkillSwap</h1>
+    <nav class="main-nav">
+      <a href="./index.html">Home</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./request.html">Requests</a>
+      <a href="./admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<main class="auth-page">
+  <section class="form-card">
+    <h2>Welcome Back</h2>
+
+    <form id="loginForm" class="form">
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required>
+      </div>
+
+      <button type="submit" class="btn primary full">Log In</button>
+    </form>
+  </section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 SkillSwap — Student Talent Exchange</p>
+  </div>
+</footer>
+
 <script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/auth.js"></script>
+
 </body>
 </html>
