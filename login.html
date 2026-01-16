@@ -1,54 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>SkillSwap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>SkillSwap | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<header class="site-header">
-  <div class="container">
-    <h1 class="logo">SkillSwap</h1>
-    <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./profile.html">Profile</a>
-      <a href="./request.html">Requests</a>
-      <a href="./admin.html">Admin</a>
-    </nav>
-  </div>
-</header>
 
-<main class="auth-page">
-  <section class="form-card">
-    <h2>Welcome Back</h2>
-
-    <form id="loginForm" class="form">
-      <div class="form-group">
-        <label for="loginEmail">Email</label>
-        <input type="email" id="loginEmail" name="email" required>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">SkillSwap</h1>
+        <nav class="main-nav">
+          <a href="login.html">Login</a>
+          <a href="signup.html" class="button primary">Sign Up</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="form-group">
-        <label for="loginPassword">Password</label>
-        <input type="password" id="loginPassword" name="password" required>
+
+    <!-- Login Form -->
+     <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
+    <main class="auth-page">
+      <section class="form-card container">
+        <h2>Welcome Back</h2>
+        <p class="form-intro">Log in to access your SkillSwap account and start learning.</p>
+
+
+        <form id="loginForm" class="form">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
+          </div>
+
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+          </div>
+
+
+          <button type="submit" class="button primary full">Log In</button>
+        </form>
+
+
+        <p class="form-footer">Don't have an account? <a href="signup.html">Sign Up</a></p>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 SkillSwap | BPA V04 Team</p>
       </div>
-
-      <button type="submit" class="btn primary full">Log In</button>
-    </form>
-  </section>
-</main>
+    </footer>
 
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 SkillSwap — Student Talent Exchange</p>
-  </div>
-</footer>
+    <script type="module" src="./js/auth.js"></script>
 
-<script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/auth.js"></script>
+    <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    });
 
+    document.querySelectorAll(".fade-in").forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "all 0.8s ease";
+      observer.observe(el);
+    });
+    </script>
 </body>
 </html>

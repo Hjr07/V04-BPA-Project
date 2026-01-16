@@ -1,56 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SkillSwap</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title> SkillSwap | Profile </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
 
 <header class="site-header">
   <div class="container">
     <h1 class="logo">SkillSwap</h1>
     <nav class="main-nav">
-      <a href="./index.html">Home</a>
-      <a href="./profile.html">Profile</a>
-      <a href="./request.html">Requests</a>
-      <a href="./admin.html">Admin</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="dashboard.html" aria-current="page">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <button id="logoutBtn" class="button secondary">Log Out</button>
     </nav>
   </div>
 </header>
 
-<main class="dashboard">
+
+<main class="dashboard container">
+
+
+  <!-- USER SUMMARY -->
   <section class="panel">
-    <h2>Your Profile</h2>
+    <h2>Your Dashboard</h2>
+    <p id="welcomeText">Welcome back! Customize your profile below.</p>
+  </section>
+
+
+  <!-- PROFILE EDIT FORM -->
+  <section class="panel">
+    <h3>Edit Profile</h3>
+
 
     <form id="profileForm" class="form wide">
       <div class="form-group">
         <label for="skillsOffered">Skills You Offer</label>
-        <input type="text" id="skillsOffered" name="skillsOffered" required>
+        <input type="text" id="skillsOffered" placeholder="e.g., Math Tutoring" required />
       </div>
+
 
       <div class="form-group">
         <label for="skillsSeeking">Skills You Want to Learn</label>
-        <input type="text" id="skillsSeeking" name="skillsSeeking" required>
+        <input type="text" id="skillsSeeking" placeholder="e.g., Spanish" required />
       </div>
+
 
       <div class="form-group">
         <label for="bio">About You</label>
-        <textarea id="bio" name="bio" rows="4" required></textarea>
+        <textarea id="bio" rows="4" placeholder="Tell others about yourself..."></textarea>
       </div>
 
-      <button type="submit" class="btn primary">Save Profile</button>
+
+      <p id="profileMsg" class="form-msg" role="status" aria-live="polite"></p>
+
+
+      <button type="submit" class="button primary full">Save Changes</button>
     </form>
   </section>
+
+
+  <!-- QUICK ACTIONS -->
+  <section class="panel">
+    <h3>Quick Actions</h3>
+    <div class="card-grid">
+      <a href="request.html" class="card big-card">
+        <h4>➕ New Request</h4>
+        <p>Request help from another student</p>
+      </a>
+    </div>
+  </section>
+
+
 </main>
 
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 SkillSwap — Student Talent Exchange</p>
-  </div>
-</footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 SkillSwap | BPA V04 Team</p>
+      </div>
+    </footer>
 
+    <script type="module" src="./js/profile.js"></script>
+    <script type="module" src="./js/logout.js"></script>
+
+    <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    });
+
+    document.querySelectorAll(".fade-in").forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "all 0.8s ease";
+      observer.observe(el);
+    });
+    </script>
+    
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title> SkillSwap | Dashboard </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">SkillSwap</h1>
+      <nav class="main-nav">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./admin.html">Admin</a>
+        <button id="logoutBtn" class="button secondary" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+<div class="fade-in">
+
+  <main id="main" class="dashboard container">
+   
+   <section class="panel">
+      <h2>Dashboard</h2>
+      <div class="card-grid">
+        <a class="card big-card" href="#newRequest">
+          <h3>➕ Add New Request</h3>
+          <p>Ask for help and pick a date.</p>
+        </a>
+        <a class="card big-card" href="./profile.html">
+          <h3>👤 Edit Profile</h3>
+          <p>Update your skills and bio.</p>
+        </a>
+      </div>
+    </section>
+
+    <p id="reqMsg" class="form-msg" role="status" aria-live="polite"></p>
+    <section class="panel" id="newRequest">
+      <h2>Add New Request</h2>
+      <p id="reqMsg" class="form-msg" role="status" aria-live="polite"></p>
+
+
+      <form id="requestForm" class="form wide">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="requestedSkill">Skill Needed</label>
+            <input type="text" id="requestedSkill" placeholder="e.g., Algebra tutoring" required />
+          </div>
+          <div class="form-group">
+            <label for="sessionDate">Preferred Date</label>
+            <input type="date" id="sessionDate" required />
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="requestMessage">Message</label>
+          <textarea id="requestMessage" rows="3" placeholder="Additional details..." required></textarea>
+        </div>
+
+
+        <button type="submit" class="button primary">Submit Request</button>
+      </form>
+    </section>
+
+
+    <!-- PREVIOUS REQUESTS LIST -->
+    <section class="panel" id="myRequests">
+      <h2>Your Previous Requests</h2>
+      <div id="requestList" class="card-grid"></div>
+    </section>
+  </main>
+</div><div class="fade-in">
+
+
+  <!-- Footer -->
+   
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 SkillSwap | BPA V04 Team</p>
+      </div>
+    </footer>
+</div>
+    <script type="module" src="./js/requests.js"></script>  <!-- or dashboard.js, pick ONE -->
+    <script type="module" src="./js/logout.js"></script>
+
+    <script>
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+        }
+    });
+    });
+
+    document.querySelectorAll(".fade-in").forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "all 0.8s ease";
+    observer.observe(el);
+    });
+    </script>
+
+</body>
+</html>

@@ -1,58 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title> SkillSwap: Student Talent Exachange Platform </title>
-            <link rel="stylesheet" href="style.css" />
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> SkillSwap | Student Talent Exchange </title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+
     <body>
-    
-    <main class="container">
-        <nav class="navbar">
-            <div class="logo">SkillConnect</div>
-            <div class="nav-links">
-            <a href="./login.html">Login</a>
-            <a href="./signup.html">Sign Up</a>
 
+
+        <header class="site-header">
+            <div class="container">
+                <h1 class="logo">SkillSwap</h1>
+                <nav class="main-nav">
+                <a href="login.html">Login</a>
+                <a href="signup.html" class="button primary">Sign Up</a>
+                </nav>
             </div>
-        </nav>
+        </header>
 
-    <section class="main">
-        <h1>Students Helping Students Learn</h1>
-        <p>
-        SkillConnect is a web application that allows students to share skills,
-        request help, and collaborate in a safe, organized way.
-        </p>
-        <div class="main-buttons">
-        <a href="signup.html" class="btn large">Get Started</a>
-        <a href="login.html" class="btn outline">Log In</a>
+
+        <main>
+        <section class="content">
+            <h2>Students Helping Students Learn</h2>
+            <p>
+            SkillSwap allows students to share skills, request help,
+            and collaborate in a safe, organized environment.
+            </p>
+
+
+            <div class="cta-group">
+            <a href="signup.html" class="button primary">Get Started</a>
+            <a href="login.html" class="button secondary">Log In</a>
+            </div>
+        </section>
+
+
+        <section class="features container">
+            <div class="card">
+            <h3>Create a Profile</h3>
+            <p>Show the skills you offer and what you want to learn.</p>
+            </div>
+
+
+            <div class="card">
+            <h3>Request Help</h3>
+            <p>Send learning requests and connect with other students.</p>
+            </div>
+
+
+            <div class="card">
+            <h3>Admin Oversight</h3>
+            <p>Admins monitor requests for safety and accountability.</p>
+            </div>
+        </section>
+        </main>
+
+
+        <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 SkillSwap | BPA V04 Team</p>
         </div>
-    </section>
-
-    <section class="features">
-        <div class="feature-card">
-        <h3>Create a Profile</h3>
-        <p>List the skills you can offer and the skills you want to learn.</p>
-        </div>
-
-        <div class="feature-card">
-        <h3>Request Help</h3>
-        <p>Send learning requests to match with the right students.</p>
-        </div>
-
-        <div class="feature-card">
-        <h3>Admin Oversight</h3>
-        <p>Administrators can view and manage session requests.</p>
-        </div>
-    </section>
-
-        <footer>
-            <p> © 2026 SkillSwap | BPA V04 Team </p>
         </footer>
-    </main>
-     <script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/test-db.js"></script>
+
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+            }
+        });
+        });
+
+        document.querySelectorAll(".fade-in").forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "all 0.8s ease";
+        observer.observe(el);
+        });
+        </script>
+        <script type="module">
+  import { auth } from "./js/firebase.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+  const nav = document.querySelector(".main-nav");
+  const cta = document.querySelector(".cta-group");
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) return;
+
+    // Swap CTA buttons
+    cta.innerHTML = `
+      <a href="./dashboard.html" class="button primary">Go to Dashboard</a>
+      <button id="logoutHomeBtn" class="button secondary" type="button">Log Out</button>
+    `;
+
+    // Optional: update navbar too
+    nav.innerHTML = `
+      <a href="./dashboard.html">Dashboard</a>
+      <a href="./profile.html">Profile</a>
+      <button id="logoutHomeBtn2" class="button primary" type="button">Log Out</button>
+    `;
+
+    const doLogout = async () => {
+      await signOut(auth);
+      window.location.replace("./index.html");
+    };
+
+    document.getElementById("logoutHomeBtn")?.addEventListener("click", doLogout);
+    document.getElementById("logoutHomeBtn2")?.addEventListener("click", doLogout);
+  });
+</script>
+
 
     </body>
     </html>
